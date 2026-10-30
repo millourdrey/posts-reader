@@ -1,15 +1,20 @@
 
-import { Button } from "@/components/ui/button";
+import { Route, Routes } from "react-router";
+
+import Layout from "@/components/layout";
+import HomeScreen from "@/pages/HomeScreen";
+import NotFoundScreen from "@/pages/NotFoundScreen";
+import PostDetailsScreen from "@/pages/PostDetailsScreen";
 
 function App() {
   return (
-    <div className="p-6">
-      <h1 className="mb-4 text-2xl font-semibold">
-        Posts Reader
-      </h1>
-
-      <Button>It works</Button>
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/posts/:postId" element={<PostDetailsScreen />} />
+        <Route path="*" element={<NotFoundScreen />} />
+      </Route>
+    </Routes>
   );
 }
 
