@@ -1,6 +1,7 @@
 
 import { ArrowLeft } from "lucide-react";
 import { Link, Outlet, useLocation } from "react-router";
+
 import { ModeToggle } from "@/components/mode-toggle";
 
 const Layout = () => {

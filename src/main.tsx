@@ -6,6 +6,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
+
 import "./index.css";
 import App from "./App";
 import { ThemeProvider } from "./components/theme-provider";
@@ -16,7 +17,10 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={qc}>
-        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <ThemeProvider
+          defaultTheme="dark"
+          storageKey="vite-ui-theme"
+        >
           <App />
         </ThemeProvider>
       </QueryClientProvider>
