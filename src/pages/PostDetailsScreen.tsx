@@ -104,3 +104,4 @@ const PostDetailsScreen = () => {
 };
 
 export default PostDetailsScreen;
+
