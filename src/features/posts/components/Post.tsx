@@ -1,5 +1,5 @@
-import { Link } from "react-router";
 
+import { Link } from "react-router";
 import {
   Card,
   CardAction,
@@ -12,19 +12,21 @@ import type { Post } from "../posts.types";
 
 const PostRow = ({ post }: { post: Post }) => {
   return (
-    <Card className="relative">
-      <CardHeader className="relative">
-        <CardTitle className="relative">
+    <Card className="relative transition-colors hover:bg-muted/50">
+      <CardHeader>
+        <CardTitle className="line-clamp-2">
           <Link
             to={`/posts/${post.id}`}
-            className="relative z-10 before:absolute before:inset-0 before:z-0 before:content-['']"
+            className="before:absolute before:inset-0 before:content-['']"
           >
             {post.title}
           </Link>
         </CardTitle>
 
-        <CardAction className="text-xs text-muted-foreground">
-          #{post.id}
+        <CardAction>
+          <span className="text-sm text-muted-foreground">
+            #{post.id}
+          </span>
         </CardAction>
       </CardHeader>
 
@@ -41,17 +43,14 @@ export default PostRow;
 
 export const PostRowSkeleton = () => {
   return (
-    <Card className="relative">
-      <CardHeader className="relative">
-        <div className="flex items-center justify-between gap-3">
-          <Skeleton className="h-5 w-3/4" />
-          <Skeleton className="h-6 w-10" />
-        </div>
+    <Card aria-hidden="true">
+      <CardHeader>
+        <Skeleton className="h-5 w-3/4" />
+        <Skeleton className="h-4 w-12" />
       </CardHeader>
-
       <CardContent className="space-y-2">
         <Skeleton className="h-4 w-full" />
-        <Skeleton className="h-4 w-5/6" />
+        <Skeleton className="h-4 w-2/3" />
       </CardContent>
     </Card>
   );

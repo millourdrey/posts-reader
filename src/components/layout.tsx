@@ -1,6 +1,6 @@
+
 import { ArrowLeft } from "lucide-react";
 import { Link, Outlet, useLocation } from "react-router";
-
 import { ModeToggle } from "@/components/mode-toggle";
 
 const Layout = () => {
@@ -8,23 +8,28 @@ const Layout = () => {
   const atRoot = pathname === "/";
 
   return (
-    <div className="min-h-screen px-6 py-10 sm:px-10">
-      <div className="mx-auto w-full max-w-2xl">
-        <header className="mb-8 flex items-center justify-between gap-5">
+    <div className="min-h-screen">
+      <header className="border-b">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4">
           {atRoot ? (
-            <span className="text-lg font-medium tracking-[-0.01em]">Posts</span>
+            <Link to="/" className="text-xl font-bold">
+              Posts
+            </Link>
           ) : (
-            <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium">
-              <ArrowLeft className="h-4 w-4" />
+            <Link
+              to="/"
+              className="flex items-center gap-2 text-sm font-medium"
+            >
+              <ArrowLeft className="size-4" />
               All posts
             </Link>
           )}
 
           <ModeToggle />
-        </header>
+        </div>
+      </header>
 
-        <Outlet />
-      </div>
+      <Outlet />
     </div>
   );
 };
