@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { usePost } from "@/features/posts/posts.hooks";
+import CommentList from "@/features/comments/components/CommentList";
 
 const PostDetailsScreen = () => {
   const { postId } = useParams();
@@ -99,9 +100,10 @@ const PostDetailsScreen = () => {
           </div>
         </div>
       </article>
+
+      <CommentList postId={data.id} />
     </main>
   );
 };
 
 export default PostDetailsScreen;
-
