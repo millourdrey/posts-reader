@@ -1,3 +1,4 @@
+
 import Avatar from "@/components/avatar";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -17,6 +18,7 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
           </h3>
         </div>
       </CardHeader>
+
       <CardContent>
         <p className="text-[0.9375rem] leading-[1.65] text-foreground/80">
           {comment.body}
@@ -35,6 +37,7 @@ export const CommentItemSkeleton = () => {
           <Skeleton className="h-4 w-3/5 rounded-md" />
         </div>
       </CardHeader>
+
       <CardContent className="flex flex-col gap-2">
         <Skeleton className="h-4 rounded-md" />
         <Skeleton className="h-4 w-11/12 rounded-md" />
